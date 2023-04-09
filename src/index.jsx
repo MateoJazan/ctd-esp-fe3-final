@@ -16,8 +16,8 @@ render(
       <Routes>
           <Route path="/" element={<App />}>
             <Route path="Contact" element={<Contact />} />
-            <Route path="Detail" element={<Detail />} />
-            <Route path="Favs/:id" element={<Favs />} />
+            <Route path="Detail/:Id" element={<Detail />} />
+            <Route path="Favs" element={<Favs />} />
             <Route path="Home" element={<Home />} />
           </Route>
       </Routes>

@@ -9,11 +9,12 @@ import globalContext from './context'
  
 function App() {
 const [theme, setTheme] = useState("light")
+const [favs, setFavs] = useState([])
 
 const handleChangeTheme = () =>{
   setTheme(theme === "light" ? "light" : "dark")
 }
-const [dentistList, setDentistList] = useState(["hola"]);
+const [dentistList, setDentistList] = useState([""]);
 
 
 
@@ -22,20 +23,20 @@ const fetchDentistList = async () => {
     "https://jsonplaceholder.typicode.com/users"
   );
   const data = await res.json();
-
   setDentistList(data);
-};
+  localStorage.setItem("DentistList", JSON.stringify(data))
+  };
 
-useEffect(() => {
-  fetchDentistList();
-}, []);
+  useEffect(() => {
+    fetchDentistList();
+  }, []);
 
 
 
 
   return (
       <div className="App">
-        <globalContext.Provider value={{ theme, handleChangeTheme, dentistList}}>
+        <globalContext.Provider value={{ theme, handleChangeTheme, dentistList, favs, setFavs}}>
           <Navbar/>
           <Outlet/>
           <Footer/>
