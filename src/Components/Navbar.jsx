@@ -12,7 +12,6 @@ const Navbar = () => {
       <Link to="/Home">Home</Link>
       <Link to="/Contact">Contact</Link>
       <Link to="/Favs">Favs</Link>
-      {/* ESTA VA EN CADA CARD, NO ACA <Link to="/Detail/:id">Detail</Link>*/}
       {/* Deberan implementar ademas la logica para cambiar de Theme con el button */}
       <button>Change theme</button>
     </nav>
