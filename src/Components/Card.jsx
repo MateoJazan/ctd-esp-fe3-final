@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import globalContext from "../context";
 import { Link } from 'react-router-dom'
+import "../styles.css"
 
 const Card = ({ name, username, id}) => {
 
@@ -22,7 +23,7 @@ const Card = ({ name, username, id}) => {
 
   return (
     <div className={"card "+ {theme}}>
-        <p>Dentist ID is: {id}</p>
+        <p className={theme}>Dentist ID is: {id}</p>
         <p>Dentist name is: {name}</p>
         <p>Dentist username is: {username}</p>
         <Link to={"/Detail/"+id}>Details</Link>

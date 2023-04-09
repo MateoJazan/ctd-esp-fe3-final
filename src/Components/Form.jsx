@@ -7,6 +7,7 @@ const Form = () => {
   //Aqui deberan implementar el form completo con sus validaciones
   const [nombre, setNombre] = useState("")
   const [email, setEmail] = useState("")
+  const [msg, setMsg] = useState("")
   const onChangeNombre = (e) =>{
     setNombre(e.target.value)
 
@@ -16,10 +17,11 @@ const Form = () => {
   }
   const onSubmitForm = (e) => {
     
-    e.preventDefault()  
-    console.log(emailCheck(email))
-    if (!emailCheck(email) && !nombreCheck){
-        alert('error')
+    e.preventDefault()
+    if (!emailCheck(email) || !nombreCheck(nombre)){
+        setMsg("Por favor verifique su información nuevamente")
+      }else{
+        setMsg(`Gracias ${nombre}, te contactaremos cuando antes vía mail`)
       }
     }
   const emailCheck = (email) =>{
@@ -27,7 +29,7 @@ const Form = () => {
     return regex.test(email)
   }  
   const nombreCheck = (nomb) =>{
-    return !(nomb.length <5)
+    return (nomb.length >= 5)
   }
   return (
     <div>
@@ -50,6 +52,7 @@ const Form = () => {
         />
         <button type="submit">Enviar</button> 
       </form>
+      <p>{msg}</p>
     </div>
   );
 };

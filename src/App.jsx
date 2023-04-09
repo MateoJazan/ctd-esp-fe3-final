@@ -12,10 +12,9 @@ const [theme, setTheme] = useState("light")
 const [favs, setFavs] = useState([])
 
 const handleChangeTheme = () =>{
-  setTheme(theme === "light" ? "light" : "dark")
+  setTheme(theme === "light" ? "dark" : "light")
 }
 const [dentistList, setDentistList] = useState([""]);
-
 
 
 const fetchDentistList = async () => {
